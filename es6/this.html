@@ -4,11 +4,13 @@
 <!-- 🔥🔥練習開始🔥🔥 -->
 <script>
 // #1 一個函式中包含多少參數
-var a = '全域'
-function fn(params) {
-  console.log(params, this, window, arguments);
-  debugger;
-}
+// var a = '全域'
+// function fn(params) {
+//   console.log(params, this, window, arguments);
+//   debugger;
+// }
+
+// fn()
 
 // #2 this 的指向為何
 // var obj = {
@@ -18,47 +20,49 @@ function fn(params) {
 //     // debugger;
 //   }
 // }
+// obj.fn(1,2,3)
 
 // #3 注意：this 的指向相當複雜，大部分情境只需要了解其中一種即可(95%)
 // 傳統函式中的 this 只與調用方式有關
-// var someone = '全域';
-// function callSomeone() {
-//   console.log(this.someone);
-// }
-// callSomeone();
+var someone = '全域';
+function callSomeone() {
+  console.log(this.someone);
+}
+callSomeone(); // simple call
 
 // #4 各種運用變化
-// var obj = {
-//   someone: '物件',
-//   callSomeone() {
-//     console.log(this.someone);
-//   }
-// }
-// obj.callSomeone();
+var obj = {
+  someone: '物件',
+  callSomeone() {
+    console.log(this.someone);
+  }
+}
+obj.callSomeone();
 
-// var obj2 = {
-//   someone: '物件2',
-//   callSomeone
-// }
-// obj2.callSomeone();
+var obj2 = {
+  someone: '物件2',
+  callSomeone
+}
+obj2.callSomeone();
 
-// var wrapObj = {
-//   someone: '外層物件',
-//   callSomeone,
-//   innerObj: {
-//     someone: '內層物件',
-//     callSomeone,
-//   }
-// }
-// wrapObj.innerObj.callSomeone();
+var wrapObj = {
+  someone: '外層物件',
+  callSomeone,
+  innerObj: {
+    someone: '內層物件',
+    callSomeone,
+  }
+}
+wrapObj.callSomeone();
+wrapObj.innerObj.callSomeone();
 
-// var obj3 = {
-//   someone: '物件 3',
-//   fn() {
-//     callSomeone(); // 通常平常不會這樣去取用 this
-//   }
-// }
-// obj3.fn();
+var obj3 = {
+  someone: '物件 3',
+  fn() {
+    callSomeone(); // 通常平常不會這樣去取用 this
+  }
+}
+obj3.fn();
 
 // var obj4 = {
 //   someone: '物件 4',
@@ -73,74 +77,74 @@ function fn(params) {
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -148,7 +152,7 @@ function fn(params) {
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 

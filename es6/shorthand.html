@@ -11,14 +11,14 @@
 <script>
 // #1 語法糖與新增語法
 // 語法糖：不會影響運作，邏輯與當前 JS 一致
-const obj = {
-  myName: '物件',
-  fn: function() {
-    return this.myName;
-  }
-}
+// const obj = {
+//   myName: '1. 物件',
+//   fn: function() {
+//     return this.myName;
+//   }
+// }
 
-console.log(obj.fn());
+// console.log(obj.fn());
 
 // =====
 // #2 物件字面值 Object literals
@@ -37,7 +37,11 @@ console.log(obj.fn());
 //   name: '小明'
 // };
 
+// const people = {
+//   person
+// }
 
+// console.log(people)
 
 
 // #3 展開
@@ -45,6 +49,11 @@ console.log(obj.fn());
 const groupA = ['小明', '杰倫', '阿姨'];
 const groupB = ['老媽', '老爸'];
 const groupAll = groupA.concat(groupB);
+const groupAll2 = [...groupA, ...groupB]
+
+console.log(groupAll)
+console.log(groupAll2)
+
 
 // #3-2 物件擴展
 // 新增一個物件包含新方法，同時加入原有的方法
@@ -57,90 +66,101 @@ const methods = {
   },
 }
 
+const newMethods = {
+  fn(){
+    console.log(1);
+  },
+  ...methods
+}
+
+console.log(newMethods)
+
 
 // #3-3 轉成純陣列
 const doms = document.querySelectorAll('li');
 console.log(doms); // 請轉為純陣列
+const newDoms = [...doms]
+console.log(newDoms);
 
 
 // #4 預設值
-// function sum(a, b) { // 請加入預設值避免錯誤
-//   return a + b;
-// }
-// console.log(sum(1));
+function sum(a, b = 2) { // 請加入預設值避免錯誤
+  return a + b;
+}
+console.log(sum(1, 2));
 
 
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -148,7 +168,7 @@ console.log(doms); // 請轉為純陣列
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
