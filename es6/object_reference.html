@@ -11,6 +11,13 @@
 //   obj: {}
 // }
 
+// const person2 = person
+// person2.name = '杰倫'
+// console.log( person2, person )
+
+// const obj2 = person.obj
+// obj2.name = '物件下的名稱'
+// console.log(person)
 
 // #2 陷阱
 // const fn = (item) => {
@@ -22,7 +29,8 @@
 //   obj: {}
 // }
 // fn(person);
-// // ...
+// console.log(person)
+// ...
 
 // console.log(person);
 // 關於：這樣的錯誤，ESLint 也有建議不要這麼做（但你是有經驗的開發者時，下方也有提供關閉的方式）
@@ -34,85 +42,98 @@
 //   name: '小明',
 //   obj: {}
 // }
-
+// const person2 = Object.assign({}, person);
+// const person3 = {
+//   ...person
+// }
+// console.log( person === person2, person === person3)
+// person2.obj.age = 16
+// console.log(person, person2)
 
 // #3-2 深層拷貝
-// const person = {
-//   name: '小明',
-//   obj: {}
-// }
+const person = {
+  name: '小明',
+  obj: {}
+}
+
+// 物件轉字串，再從字串轉物件的手法
+const person2 = JSON.parse(JSON.stringify(person))
+console.log(person2)
+console.log(person2 === person)
+person2.obj.age = 16;
+console.log(person2, person)
 
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -120,7 +141,7 @@
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
