@@ -6,7 +6,7 @@
   <ul></ul>
 </div>
 
-<script>
+<script type="module">
 // #1 匯出匯入本一體，先掌握匯出更容易理解匯入
 // #1-1 將標籤定義 <script type="module">
 // #1-2 預設匯出：defaultExport.js
@@ -16,98 +16,104 @@
 // 可用於匯出已定義的變數、物件、函式，專案開發中通常用於 “方法匯出”
 // 第三方的框架、函式、套件很常使用具名定義 “方法”
 
+
 // #2 匯入方法
 // #2-1 預設匯入
 // 因為預設匯出沒有名字，所以可以為它命名
-
+import hello from './defaultExport.js'
 
 // 注意：因為傳參考的特性，因此元件無法重複利用（Vue.js 中會解決此問題）
 
 // #2-2 具名匯入
 // 單一匯入（建議寫法）
-
+import { b, a } from './namedExport.js'
+b()
+console.log(a)
 
 
 // 全部匯入（不建議，錯誤較難發現）
-
+import * as all from './namedExport.js'
+console.log(all.a)
+all.b()
+console.log(all.c(1,2))
 
 
 // #3 SideEffect
 // sideEffect.js（沒有包含匯出的檔案）
-
-
+import './sideEffect.js'
+console.log($)
 
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -115,7 +121,7 @@
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
