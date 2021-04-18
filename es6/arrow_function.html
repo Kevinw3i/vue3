@@ -77,24 +77,45 @@ const arr = [1, 2, 3, 4, 5];
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=
 // #4 實戰手法
-var someone = '全域';
-// function callSomeone() {
-//   console.log(this.someone);
+// var someone = '全域';
+// // function callSomeone() {
+// //   console.log(this.someone);
+// // }
+
+// // 1. this 先指向其他變數
+// // 2. 使用箭頭函式
+// var obj4 = {
+//   someone: '物件 4',
+//   fn() {
+//     const vm = this; // vm 在 Vue 中意指 ViewModel
+//     setTimeout(function () {
+//       console.log(this.someone);
+//     });
+//   }
 // }
 
-// 1. this 先指向其他變數
-// 2. 使用箭頭函式
-var obj4 = {
-  someone: '物件 4',
-  fn() {
-    const vm = this; // vm 在 Vue 中意指 ViewModel
-    setTimeout(function () {
-      console.log(this.someone);
-    });
+// obj4.fn();
+
+const myName = 'hexschool'
+
+const obj1 = {
+  myName: 'Wei',
+  callName: () => {
+    console.log(this)
+    console.log(this.myName)
   }
 }
 
-obj4.fn();
+const obj2 = {
+  myName: 'Wei',
+  callName() {
+    console.log(this.myName)
+  }
+}
+
+obj1.callName()
+obj2.callName()
+
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>

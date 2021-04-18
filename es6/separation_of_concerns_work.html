@@ -25,7 +25,7 @@ const component = {
     '這是第二句話',
     '這是第三句話'
   ],
-  removeData(id) {
+  removeData(id) { // 事件觸發
     this.data.splice(id, 1);
     this.render();
   },
@@ -48,7 +48,7 @@ const component = {
       this.removeData(id)
     }))
   },
-  init() {
+  init() { // 生命週期
     this.render();
   }
 }
@@ -59,74 +59,74 @@ component.init();
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -134,7 +134,7 @@ component.init();
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
