@@ -6,6 +6,9 @@
 // #1 箭頭函式的縮寫
 const arr = [1, 2, 3, 4, 5];
 
+// 縮減過程
+// const filterArr = arr.filter(function(item){ return item % 2 });
+// const filterArr = arr.filter(item => { return item % 2 });
 // const filterArr = arr.filter(item => item % 2); // 取有餘數的值（單數）
 // console.log(filterArr);
 
@@ -15,129 +18,154 @@ const arr = [1, 2, 3, 4, 5];
 // var name = '全域'
 // const person = {
 //   name: '小明',
-//   callName: function () { 
+//   callName: function () {
 //     console.log('1', this.name); // 1 小明
 //     setTimeout(function () {
-//       console.log('2', this.name); // 2
+//       console.log('2', this.name); // 2 全域
 //       console.log('3', this); // 3
 //     }, 10);
 //   },
 // }
 // person.callName();
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
+// 箭頭函式導致 this 會去找上一個 function
+// var name2 = '全域2'
+// const person2 = {
+//   name2: '小安',
+//   callName2: function () {
+//     console.log('4', this.name2); // 4 小安
+//     setTimeout( () => {
+//       console.log('5', this.name2); // 5 小安
+//       console.log('6', this); // 6 > person2 物件
+//     }, 10);
+//   },
+// }
+// person2.callName2();
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
 // #3 陷阱
 // #3-1
 // var name = '全域'
 // const person = {
 //   name: '小明',
-//   callName: () => { 
+//   callName: () => {
 //     console.log(this.name); // 請尋找箭頭所在的作用域為何？
 //   },
 // }
 // person.callName();
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
+// const callName = () => {} 傳統函式
 // #3-2
 // var name = '全域'
 // const person = {
 //   name: '小明',
 //   callMe() {
-//     const callName = () => { 
+//     const callName = () => {
 //       console.log(this.name); // 請尋找箭頭所在的作用域為何？
 //     };
 //     callName();
 //   }
 // }
 // person.callMe();
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=
 // #4 實戰手法
-// var someone = '全域';
+var someone = '全域';
 // function callSomeone() {
 //   console.log(this.someone);
 // }
 
-// var obj4 = {
-//   someone: '物件 4',
-//   fn() {
-//     // const vm = this; // vm 在 Vue 中意指 ViewModel
-//     setTimeout(function () {
-//       console.log(this.someone);
-//     });
-//   }
-// }
+// 1. this 先指向其他變數
+// 2. 使用箭頭函式
+var obj4 = {
+  someone: '物件 4',
+  fn() {
+    const vm = this; // vm 在 Vue 中意指 ViewModel
+    setTimeout(function () {
+      console.log(this.someone);
+    });
+  }
+}
 
-// obj4.fn();
+obj4.fn();
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -145,7 +173,7 @@ const arr = [1, 2, 3, 4, 5];
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
