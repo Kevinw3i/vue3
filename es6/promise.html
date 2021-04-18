@@ -33,26 +33,53 @@ const promiseSetTimeout = (status) => {
       } else {
         reject('promiseSetTimeout 失敗')
       }
-    }, 0);
+    }, 1000);
   })
 }
 
 // #2-1 基礎運用
+// promiseSetTimeout(true)
+//   .then(function(res){
+//     console.log(res)
+//   })
+//   .catch(function(res){
+//     console.log(res)
+//   })
 
 
 // #2-2 串接
-
+// promiseSetTimeout(true)
+//   .then(function(res){
+//     console.log(res)
+//     return promiseSetTimeout(true)
+//   })
+//   .then( res => {
+//     console.log(2, res)
+//   })
 
 // #2-3 失敗捕捉
+// promiseSetTimeout(false)
+//   .then(function(res){
+//     console.log(res)
+//   })
+//   .catch( err => {
+//     console.log(2, err)
+//   })
+
 
 
 // #2-4 元件運用
-// const component = {
-//   data: {},
-//   init() {
-
-//   }
-// }
+const component = {
+  data: {},
+  init() {
+    promiseSetTimeout(true)
+      .then( res => {
+        this.data.res = res
+        console.log(this.data)
+      })
+  }
+}
+component.init()
 
 
 // #3 實戰取得遠端資料
@@ -65,74 +92,74 @@ const promiseSetTimeout = (status) => {
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/es6/shorthand.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       縮寫
     </a>
-  
+
     <a href="/es6/this.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       this 的運作
     </a>
-  
+
     <a href="/es6/arrow_function.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       箭頭函式
     </a>
-  
+
     <a href="/es6/separation_of_concerns.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離
     </a>
-  
+
     <a href="/es6/separation_of_concerns_work.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       關注點分離 練習題
     </a>
-  
+
     <a href="/es6/object_reference.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       物件參考特性
     </a>
-  
+
     <a href="/es6/promise.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       Promise
     </a>
-  
+
     <a href="/es6/esModule.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES Module
     </a>
-  
+
     <a href="/es6/esModule_2.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       ES 模組延伸觀念
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -140,7 +167,7 @@ const promiseSetTimeout = (status) => {
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
