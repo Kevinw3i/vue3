@@ -42,15 +42,24 @@ const products = [{
 const App = {
   data() {
     return {
+      products: [],
       temp: {
         name: '卡斯伯',
         imageUrl: 'https://images.unsplash.com/photo-1602526430780-782d6b1783fa?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
       }
     }
   },
+  created() {
+    this.products = products
+  },
   methods: {
     confirmEdit() {
+      this.temp.id = new Date().getTime() // unix timestamp
+      this.temp.onStock = false
       console.log(this.temp);
+
+      this.products.push(this.temp)
+      this.temp = {}
     }
   }
 };
@@ -59,60 +68,60 @@ Vue.createApp(App).mount('#app');
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/intro/createApp.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       環境安裝
     </a>
-  
+
     <a href="/intro/basic_structure.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       基礎結構
     </a>
-  
+
     <a href="/intro/two_way_binding.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       雙向綁定
     </a>
-  
+
     <a href="/intro/intro_add_data.html"
       class="list-group-item list-group-item-action
-        
+
         active">
       資料操作
     </a>
-  
+
     <a href="/intro/intro_render_vfor.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       多筆畫面渲染
     </a>
-  
+
     <a href="/intro/intro_edit_data.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       資料編輯
     </a>
-  
+
     <a href="/intro/final.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       最終成品細節調整
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -120,7 +129,7 @@ Vue.createApp(App).mount('#app');
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
