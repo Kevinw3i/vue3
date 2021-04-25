@@ -6,7 +6,14 @@
 <div id="app">
   <h2>切換 Class</h2>
   <h3>物件寫法</h3>
-  <div class="box"></div>
+  <div class="box rotate"></div>
+  <!-- 加上物件，或是陣列 -->
+  <!-- Key 值是對應 className， 物件的值則是判斷式 -->
+  <div class="box" :class="{ rotate: isTransform }"></div>
+  <div class="box" :class="{ 'bg-danger': boxColor }"></div>
+  <div class="box" :class="{ rotate: isTransform, 'bg-danger': boxColor }"></div>
+  <div class="box" :class="objectClass"></div>
+
   <hr>
   <button class="btn btn-outline-primary" v-on:click="change('isTransform')">選轉物件</button>
   <button class="btn btn-outline-primary ms-1" v-on:click="change('boxColor')">切換色彩</button>
@@ -17,7 +24,7 @@
 
   <hr>
   <h4>陣列寫法</h4>
-  <button class="btn">請操作本元件</button>
+  <button class="btn" :class="['btn-primary', 'disabled']">請操作本元件</button>
   <button type="button"
     class="btn btn-outline-primary"
     v-on:click="addClass(['btn-primary', 'active'])">為陣列加入 Class</button>
@@ -25,9 +32,12 @@
   <hr>
   <h2>行內樣式</h2>
   <h4>綁定行內樣式</h4>
-  <div class="box"></div>
-  <div class="box"></div>
-  <div class="box"></div>
+  <!-- 小駝峰 -->
+  <!-- Key 會帶入 style 的屬性 -->
+  <!-- 值則是帶入 Style 相對應的值 -->
+  <div class="box" :style="{ backgroundColor: 'red' }"></div>
+  <div class="box" :style="styleObject"></div>
+  <div class="box" :style="[styleObject, styleObject2]"></div>
 </div>
 
 <script>
@@ -36,6 +46,10 @@ const App = {
     return {
       isTransform: true,
       boxColor: false,
+      objectClass: {
+        rotate: true,
+        'bg-danger': true
+      },
 
       // Array 操作
       arrayClass: [''],
@@ -83,88 +97,88 @@ Vue.createApp(App).mount('#app');
 </style>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/template/v-text.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染資料於畫面上
     </a>
-  
+
     <a href="/template/v-for.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       呈現多筆資料
     </a>
-  
+
     <a href="/template/v-if.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染判斷
     </a>
-  
+
     <a href="/template/v-bind.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       屬性綁定
     </a>
-  
+
     <a href="/template/v-style.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         active">
       樣式切換
     </a>
-  
+
     <a href="/template/form.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         ">
       v-model 與表單
     </a>
-  
+
     <a href="/template/v-model-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         ">
       v-model 修飾符
     </a>
-  
+
     <a href="/template/v-on.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 事件觸發
     </a>
-  
+
     <a href="/template/v-on-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 修飾符
     </a>
-  
+
     <a href="/template/v-on-dom-event.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       補充：v-on DOM 事件
     </a>
-  
+
     <a href="/template/directive-final.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       章節挑戰
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -172,7 +186,7 @@ Vue.createApp(App).mount('#app');
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
