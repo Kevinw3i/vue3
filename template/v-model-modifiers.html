@@ -7,13 +7,14 @@
   <h3>修飾符</h3>
   <h4 class="mt-3">延遲 Lazy</h4>
   {{ lazyMsg }}
-  <input type="text" class="form-control" v-model="lazyMsg">
+  <input type="text" class="form-control" v-model.lazy="lazyMsg">
   <h4 class="mt-3">純數值 Number</h4>
   {{ numberMsg }}{{ typeof numberMsg }}
-  <input type="text" class="form-control" v-model="numberMsg">
+  <input type="text" class="form-control" v-model.number="numberMsg">
+  <input type="number" class="form-control" v-model.number="numberMsg">
   <h4 class="mt-3">修剪 Trim</h4>
   這是一段{{ trimMsg }}緊黏的文字
-  <input type="text" class="form-control" v-model="trimMsg">
+  <input type="text" class="form-control" v-model.trim="trimMsg">
 
 </div>
 
@@ -32,88 +33,88 @@ Vue.createApp(App).mount('#app');
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/template/v-text.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染資料於畫面上
     </a>
-  
+
     <a href="/template/v-for.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       呈現多筆資料
     </a>
-  
+
     <a href="/template/v-if.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染判斷
     </a>
-  
+
     <a href="/template/v-bind.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       屬性綁定
     </a>
-  
+
     <a href="/template/v-style.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       樣式切換
     </a>
-  
+
     <a href="/template/form.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         ">
       v-model 與表單
     </a>
-  
+
     <a href="/template/v-model-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         active">
       v-model 修飾符
     </a>
-  
+
     <a href="/template/v-on.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 事件觸發
     </a>
-  
+
     <a href="/template/v-on-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 修飾符
     </a>
-  
+
     <a href="/template/v-on-dom-event.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       補充：v-on DOM 事件
     </a>
-  
+
     <a href="/template/directive-final.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       章節挑戰
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -121,7 +122,7 @@ Vue.createApp(App).mount('#app');
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
