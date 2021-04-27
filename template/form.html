@@ -5,20 +5,20 @@
 
 <div id="app">
   <h3>input</h3>
-  <input type="text" class="form-control">
+  <input type="text" class="form-control" v-model="name">
   {{ name }}
-
+  <p v-text="name"></p>
   <hr>
   <h3>textarea</h3>
-  <textarea cols="30" rows="3" class="form-control"></textarea>
+  <textarea cols="30" rows="3" class="form-control" v-model="text"></textarea>
   {{ text }}
-  
+
   <hr>
   <h3>checkbox 單選框</h3>
   <p>小明，你是吃飽沒？</p>
   <p>{{ checkAnswer ? '吃飽了' : '還沒'}}</p>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="check1" >
+    <input type="checkbox" class="form-check-input" id="check1" v-model="checkAnswer">
     <label class="form-check-label" for="check1">小明回覆</label>
   </div>
 
@@ -27,7 +27,10 @@
   <p>小明，你是吃飽沒？</p>
   <p>{{ checkAnswer2 }}</p>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="check2" >
+    <input type="checkbox" v-model="checkAnswer2"
+    true-value="吃飽了"
+    false-value="還沒"
+    class="form-check-input" id="check2" >
     <label class="form-check-label" for="check2">小明回覆</label>
   </div>
 
@@ -36,15 +39,21 @@
   <p>你還要吃什麼？</p>
   <p>{{ checkAnswer3.join(' ') }}</p>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="check3" value="蛋餅" >
+    <input type="checkbox" class="form-check-input"
+    v-model="checkAnswer3"
+    id="check3" value="蛋餅" >
     <label class="form-check-label" for="check3">蛋餅</label>
   </div>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="check4" value="蘿蔔糕" >
+    <input type="checkbox" class="form-check-input"
+    v-model="checkAnswer3"
+    id="check4" value="蘿蔔糕" >
     <label class="form-check-label" for="check4">蘿蔔糕</label>
   </div>
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="check5" value="豆漿" >
+    <input type="checkbox" class="form-check-input"
+    v-model="checkAnswer3"
+    id="check5" value="豆漿" >
     <label class="form-check-label" for="check5">豆漿</label>
   </div>
 
@@ -53,15 +62,21 @@
   <p>你還要吃什麼？</p>
   <p>{{ radioAnswer }}</p>
   <div class="form-check">
-    <input type="radio" class="form-check-input" id="radio1" value="蛋餅" >
+    <input type="radio" class="form-check-input"
+    v-model="radioAnswer"
+    id="radio1" value="蛋餅" >
     <label class="form-check-label" for="radio1">蛋餅</label>
   </div>
   <div class="form-check">
-    <input type="radio" class="form-check-input" id="radio2" value="蘿蔔糕" >
+    <input type="radio" class="form-check-input"
+    v-model="radioAnswer"
+    id="radio2" value="蘿蔔糕" >
     <label class="form-check-label" for="radio2">蘿蔔糕</label>
   </div>
   <div class="form-check">
-    <input type="radio" class="form-check-input" id="radio3" value="豆漿" >
+    <input type="radio" class="form-check-input"
+    v-model="radioAnswer"
+    id="radio3" value="豆漿" >
     <label class="form-check-label" for="radio3">豆漿</label>
   </div>
 
@@ -69,15 +84,16 @@
   <h3>select 單選</h3>
   <p>你還要吃什麼？</p>
   <p>{{ selectAnswer }}</p>
-  <select class="form-select">
-    <option >說吧，你要吃什麼？</option>
+  <select class="form-select" v-model="selectAnswer">
+    <option value="" disabled>說吧，你要吃什麼？</option>
+    <option v-for="item in products" :key="item.name" :value="item.name">{{item.name}} / {{item.price}}</option>
   </select>
 
   <hr>
   <h3>select 多選</h3>
   <p>你還要吃什麼？</p>
   <p>{{ selectAnswer2 }}</p>
-  <select class="form-select" v-model="selectAnswer2">
+  <select class="form-select" v-model="selectAnswer2" multiple>
     <option selected disabled value="">說吧，你要吃什麼？</option>
     <option :value="item.name" v-for="item in products" :key="item.name">
     {{item.name}} / {{item.price}} 元</option>
@@ -161,88 +177,88 @@ Vue.createApp(App)
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
 </main>
-  
+
     <aside
       class="col-md-3"><div class="sticky-top" style="top: 76px">
   <div class="list-group">
-  
+
     <a href="/template/v-text.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染資料於畫面上
     </a>
-  
+
     <a href="/template/v-for.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       呈現多筆資料
     </a>
-  
+
     <a href="/template/v-if.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       渲染判斷
     </a>
-  
+
     <a href="/template/v-bind.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       屬性綁定
     </a>
-  
+
     <a href="/template/v-style.html"
       class="list-group-item list-group-item-action
         list-group-item-success
         ">
       樣式切換
     </a>
-  
+
     <a href="/template/form.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         active">
       v-model 與表單
     </a>
-  
+
     <a href="/template/v-model-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-danger
         ">
       v-model 修飾符
     </a>
-  
+
     <a href="/template/v-on.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 事件觸發
     </a>
-  
+
     <a href="/template/v-on-modifiers.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       v-on 修飾符
     </a>
-  
+
     <a href="/template/v-on-dom-event.html"
       class="list-group-item list-group-item-action
         list-group-item-info
         ">
       補充：v-on DOM 事件
     </a>
-  
+
     <a href="/template/directive-final.html"
       class="list-group-item list-group-item-action
-        
+
         ">
       章節挑戰
     </a>
-  
+
   </div>
   <div class="mt-3 text-end p-2 bg-light rounded">
     <small class="text-black-50 fw-light mb-0">文件版本：2021/4/09</small>
@@ -250,7 +266,7 @@ Vue.createApp(App)
 </div>
 
 </aside>
-    
+
   </div>
 </div>
 
