@@ -62,6 +62,7 @@
 
   <hr>
   <h3>動態屬性綁定(注意大小寫)</h3>
+  <!-- v-bind 除了可以綁定HTML屬性，也可以綁定動態的值 -->
   <button type="button"
   v-on:click="dynamic = dynamic === 'disabled' ? 'readonly':'disabled'">切換為 {{ dynamic }}</button>
   <br>
